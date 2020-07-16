@@ -36,14 +36,14 @@ class DigitOccupancyReductor : public quality_control::postprocessing::Reductor
 {
  public:
   DigitOccupancyReductor();
-  ~DigitOccupancyReductor();
+  virtual ~DigitOccupancyReductor() = default;
 
   void* getBranchAddress() override;
   const char* getBranchLeafList() override;
   void update(TObject* obj) override;
 
  private:
-  o2::emcal::Geometry *mGeometry;
+  o2::emcal::Geometry* mGeometry;
   struct {
     Double_t mCountTotal;
     Double_t mCountSM[20];
